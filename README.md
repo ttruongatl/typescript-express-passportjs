@@ -9,7 +9,7 @@ Typescript@2.0.7
 
 Run npm install:
 ```shell
-npm install -g tsd typescript nodemon mocha nyc codecov
+npm install -g typescript nodemon mocha nyc codecov
 npm install
 ```
 
