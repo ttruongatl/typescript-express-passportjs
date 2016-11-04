@@ -1,0 +1,47 @@
+{
+  "name": "expressjs-typescript-template",
+  "version": "1.0.0",
+  "description": "ExpressJS template project uses TypeScript, Moongose, Continuous Integration (CircleCI.io) and Code Coverage (CodeCov.io)",
+  "main": "index.js",
+  "devDependencies": {
+    "@types/assertion-error": "^1.0.30",
+    "@types/chai": "^3.4.34",
+    "@types/mocha": "^2.2.32",
+    "chai": "^3.5.0",
+    "codecov": "^1.0.1",
+    "mocha": "^2.5.3",
+    "nyc": "^6.4.4",
+    "typescript": "^2.0.6"
+  },
+  "scripts": {
+    "pretest": "tsc test/*.ts --module commonjs --sourcemap --target es6",
+    "test": "nyc mocha",
+    "posttest": "nyc report --reporter=json && codecov -f coverage/*.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thanhtruong0315/expressjs-typescript-template"
+  },
+  "keywords": [
+    "codecov",
+    "typescript",
+    "expressjs",
+    "circleci",
+    "coverage",
+    "mongodb"
+  ],
+  "author": "Thanh Truong <vagabondtt1503@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thanhtruong0315/expressjs-typescript-template/issues"
+  },
+  "homepage": "https://github.com/thanhtruong0315/expressjs-typescript-template/issuest#readme",
+  "dependencies": {
+    "@types/body-parser": "0.0.33",
+    "@types/express": "^4.0.33",
+    "@types/supertest": "^1.1.31",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "supertest": "^2.0.1"
+  }
+}
