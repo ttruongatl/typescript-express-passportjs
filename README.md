@@ -6,6 +6,7 @@ ExpressJS template project uses TypeScript, Moongose, Continuous Integration [Ci
 
 Run npm install:
 ```shell
+npm install -g tsd typescript nodemon mocha nyc codecov
 npm install
 ```
 
