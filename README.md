@@ -17,3 +17,10 @@ Test:
 ```shell
 npm test
 ```
+
+Generate Secret Key in *Config* folder.
+=============
+```
+$ ssh-keygen
+$ openssl rsa -in private_key_filename -pubout -outform PEM -out public_key_output_filename
+```
