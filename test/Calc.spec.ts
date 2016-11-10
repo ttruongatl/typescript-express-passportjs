@@ -1,9 +1,8 @@
-import app = require('../src/App');
-import request = require('supertest');
-//import { expect, should } from 'chai';
+import * as server from '../src/App';
+import * as request from 'supertest';
 import * as chai from 'chai';
 var expect = chai.expect;
-var should = require('chai').should();
+var should = chai.should();
 
 describe('Calculator', () => {
     beforeEach(function () {
@@ -11,8 +10,8 @@ describe('Calculator', () => {
     afterEach(function () {
     });
     it('sum', function (done) {
-        request(app)
-            .post('/api/sum')
+        request(server)
+            .post('/api/calculator/sum')
             .send({
                 'x': 2,
                 'y': 3
