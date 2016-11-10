@@ -24,6 +24,12 @@ cd src
 node App.js
 ```
 
+How to change mongodb database URL
+* Open [src/Services/Database](https://github.com/thanhtruong0315/typescript-express-passportjs/blob/master/src/Services/Database.ts)
+* Change URL
+```
+mongoose.connect('<YOUR-DATABASE-URL>');
+```
 Generate Secret Key in *Config* folder.
 =============
 ```
