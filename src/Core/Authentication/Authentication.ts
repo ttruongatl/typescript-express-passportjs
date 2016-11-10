@@ -24,7 +24,7 @@ export class Authentication {
      *                     id: string
      *                  }
      *             }
-     * @returns {DailyDayData}
+     * @returns 
      */
     public async signUpWithUsernameAndPassword(username: string, password: string): Promise<any> {
 
@@ -70,7 +70,7 @@ export class Authentication {
      *                     token: string
      *                  }
      *             }
-     * @returns {DailyDayData}
+     * @returns 
      */
     public async signInWithUsernameAndPassword(username: string, password: string) {
 
@@ -119,21 +119,30 @@ export class Authentication {
      * Check access TOKEN in Request
      * Push user(id, iat, ...) to req.user
      */
-    public verifyToken(token: string, callback) {
-        if (!token) {
-            callback('Invalid Token', 403, undefined);
-            return;
-        } else {
-            var cert = fs.readFileSync('./Config/Dev/Public.pem');  // get private key
-            jwt.verify(token, cert, { algorithms: ['RS256'] }, function (err, payload) {
-                if (err) {
-                    callback('Invalid Token', 403, undefined);
-                    return;
-                } else {
-                    callback(undefined, 200, payload);
-                    return;
-                }
-            });
-        }
+    public verifyToken(token: string) {
+        var response: any = {};
+        let promise = new Promise(function (resolve, reject) {
+
+            if (!token) {
+                response.err = 'InvalidToken';
+                response.code = 403;
+                response.data = undefined;
+            } else {
+                var cert = fs.readFileSync('./Config/Dev/Public.pem');  // get private key
+                jwt.verify(token, cert, { algorithms: ['RS256'] }, function (err, payload) {
+                    if (err) {
+                        response.err = 'InvalidToken';
+                        response.code = 403;
+                        response.data = undefined;
+                    } else {
+                        response.err = undefined;
+                        response.code = 200;
+                        response.data = payload;
+                    }
+                });
+            }
+            resolve(response);
+        });
+        return promise;
     }
 }

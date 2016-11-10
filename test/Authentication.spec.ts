@@ -75,7 +75,6 @@ describe('Authentication', function () {
                     if (err) {
                         throw err;
                     }
-                    console.log('body:', res.body);
                     res.status.should.be.equal(403);
                     res.body.should.have.property('err');
                     res.body.err.should.be.equal('SignInFailed');
