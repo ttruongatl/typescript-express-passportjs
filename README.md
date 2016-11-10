@@ -18,6 +18,12 @@ Test:
 npm test
 ```
 
+Start Server:
+```shell
+cd src
+node App.js
+```
+
 Generate Secret Key in *Config* folder.
 =============
 ```
