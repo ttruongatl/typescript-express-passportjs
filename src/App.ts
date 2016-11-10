@@ -3,6 +3,7 @@ import * as bodyParser from 'body-parser';
 import * as http from 'http';
 
 import { CalculatorRouter } from './Routes/CalculatorRouter';
+import { AuthenticationRouter } from './Routes/AuthenticationRouter';
 
 const app: express.Application = express();
 // Configuration
@@ -21,7 +22,8 @@ app.use((err: Error & { status: number }, request: express.Request, response: ex
         error: 'Server error'
     })
 });
-app.use('/api/', new CalculatorRouter().getRouter());
+app.use('/api/calculator/', new CalculatorRouter().getRouter());
+app.use('/api/authentication/', new AuthenticationRouter().getRouter());
 
 
 const server: http.Server = app.listen(3000, function () {
